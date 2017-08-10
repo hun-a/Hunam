@@ -1,0 +1,22 @@
+{
+  "name": "hunam",
+  "version": "1.0.0",
+  "description": "Hun&a's Music Player by Web!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seunghun-kim/Hunam.git"
+  },
+  "keywords": [
+    "mp3"
+  ],
+  "author": "Hun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seunghun-kim/Hunam/issues"
+  },
+  "homepage": "https://github.com/seunghun-kim/Hunam#readme"
+}
