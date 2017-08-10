@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/seunghun-kim/Hunam#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "sequelize": "^4.4.2",
+    "sqlite3": "^3.1.9"
   }
 }
