@@ -4,6 +4,7 @@
   "description": "Hun&a's Music Player by Web!",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/seunghun-kim/Hunam/issues"
   },
-  "homepage": "https://github.com/seunghun-kim/Hunam#readme"
+  "homepage": "https://github.com/seunghun-kim/Hunam#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
