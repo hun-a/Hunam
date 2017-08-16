@@ -15,7 +15,7 @@ var title = '';
 var fileName = '';
 var duration = '';
 
-function _download(url, dest, name) {
+var _download = function(url, dest, name) {
   console.log(!!name);
   var destPath = !!name === true ? `"${dest}/${name}.%(ext)s"` : `"${dest}/%(title)s.%(ext)s"`;
 
@@ -27,7 +27,11 @@ function _download(url, dest, name) {
 
     downloader.emit('complete', err, out);
   });
-}
+};
+
+var saveToDB = function(info) {
+  // TODO need to implement saving mp3 informataion to the database
+};
 
 Downloader.prototype.download = function(url, name) {
   youtube.getInfo(url, [], (err, info) => {
