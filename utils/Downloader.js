@@ -2,7 +2,6 @@
 
 const exec = require('child_process').exec;
 const EventEmitter = require('events');
-const util = require('util');
 const fs = require('fs');
 const path = require('path');
 const youtube = require('youtube-dl');
