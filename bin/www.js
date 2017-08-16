@@ -3,6 +3,11 @@ const fs = require('fs');
 const app = express();
 const port = 10000;
 const Downloader = require('../utils/Downloader');
+const syncDB = require('../data/sync-db');
+
+syncDB().then(_ => {
+  console.log('Sync database!');
+});
 
 app.set('view engine', 'pug');
 app.locals.pretty = true;
