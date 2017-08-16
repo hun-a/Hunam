@@ -22,6 +22,7 @@
   "homepage": "https://github.com/seunghun-kim/Hunam#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "pug": "^2.0.0-rc.3",
     "sequelize": "^4.4.2",
     "sqlite3": "^3.1.9",
     "youtube-dl": "^1.11.1",
