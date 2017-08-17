@@ -13,6 +13,10 @@ app.set('view engine', 'pug');
 app.locals.pretty = true;
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  res.render('login');
+});
+
 app.get('/down/:url/:name', (req, res) => {
   const url = req.params.url;
   const name = req.params.name;
