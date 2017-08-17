@@ -9,12 +9,20 @@ html(lang='ko')
     div(class='container')
       div(class='column center')
         h1 Login
-        form(action='/login' method='post')
-          br
-          input(type='text' name='user')
-          br
-          input(type='password' name='pwd')
-          br
-          button(type='button' id='join') join
-          button(type='submit') login
-          button(type='button' id='cancel') cancel
+        form(id='login-form' action='/login' method='post')
+          table(id='join-table')
+            tr
+              td
+                |ID
+              td
+                input(type='text' id='user' name='user')
+            tr
+              td
+                |PASSWORD
+              td
+                input(type='password' id='pwd' name='pwd')
+            tr
+              td(colspan='2')
+                button(type='button' id='join') join
+                button(type='button' id='login') login
+                button(type='button' id='cancel') cancel
