@@ -2,12 +2,17 @@ doctype html
 html(lang='ko')
   head
     title login page
+    link(rel='stylesheet' type='text/css' media='all' href='css/audio.css')
   body
-    form(action='/login' method='post')
-      p
-        input(type='text')
-      p
-        input(type='password')
-      p
-        button(type='submit') login
-        button(type='cancel') cancel
+    div(class='container')
+      div(class='column center')
+        h1 Login
+        br
+        form(action='/login' method='post')
+          p
+            input(type='text' id='user')
+          p
+            input(type='password' id='pwd')
+          p
+            button(type='submit') login
+            button(type='cancel') cancel
