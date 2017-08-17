@@ -704,3 +704,7 @@ html[data-useragent*="Chrome"][data-useragent*="Android"] .plSel, html[data-user
     width: 167px;
   }
 }
+
+#join-table {
+  margin: 0 auto;
+}

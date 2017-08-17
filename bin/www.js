@@ -27,6 +27,10 @@ app.post('/login', (req, res) => {
   res.send(user + ', ' + pwd);
 });
 
+app.get('/join', (req, res) => {
+  res.render('join');
+});
+
 app.get('/down/:url/:name', (req, res) => {
   const url = req.params.url;
   const name = req.params.name;
