@@ -67,4 +67,14 @@ $(document).ready(() => {
   $('#main').click(() => {
     window.location.replace('/users');
   });
+
+  $('#search-btn').click(() => {
+    const keyword = $('#search-text').val();
+    window.location.href=`/music/search/${keyword}`;
+  });
+
+  $('.down-btn').click(() => {
+    const link = $(this).attr('name');
+    alert(link);
+  });
 });

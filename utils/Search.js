@@ -21,9 +21,7 @@ function search(keyword, callback) {
         link: item.link,
         title: item.title,
         discription: item.description,
-        thumbnailName: thumbnail.url,
-        thumbnailWidth: thumbnail.width,
-        thumbnailHeight: thumbnail.height
+        thumbnail: thumbnail.url
       });
     }
     callback(searchContents);

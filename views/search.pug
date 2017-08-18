@@ -13,5 +13,14 @@ html(lang='ko')
         input(type='text' id='search-text')
         button(id='search-btn') Search
         br
-        each item in list
-          item.title
+        br
+        table
+          each item in list
+            tr
+              td
+                image(src=item.thumbnail)
+              td
+                = item.title
+                br
+                br
+                button(class='down-btn' value=item.link) down

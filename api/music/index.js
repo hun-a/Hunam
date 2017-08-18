@@ -3,9 +3,8 @@ const router = express.Router();
 const ctrl = require('./music.ctrl');
 
 router.get('/', ctrl.manage);
-router.get('/down', ctrl.down);
-router.get('/down/:list', ctrl.down);
-router.get('/play', ctrl.play);
+router.get('/search', ctrl.search);
 router.get('/search/:keyword', ctrl.search);
+router.get('/play', ctrl.play);
 
 module.exports = router;
