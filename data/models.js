@@ -13,6 +13,12 @@ const User = sequelize.define('User', {
   },
   id: {
     type: Sequelize.STRING  // varchar 255
+  },
+  password: {
+    type: Sequelize.STRING  // varchar 255
+  },
+  email: {
+    type: Sequelize.STRING  // varchar 255
   }
 });
 

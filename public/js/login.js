@@ -63,4 +63,8 @@ $(document).ready(() => {
 
     $('#join-form').submit();
   });
+
+  $('#main').click(() => {
+    window.location.replace('/users/main');
+  });
 });
