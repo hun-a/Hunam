@@ -65,6 +65,6 @@ $(document).ready(() => {
   });
 
   $('#main').click(() => {
-    window.location.replace('/users/main');
+    window.location.replace('/users');
   });
 });

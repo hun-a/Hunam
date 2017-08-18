@@ -2,7 +2,9 @@ const md5 = require('md5');
 const models = require('../../data/models');
 
 const main = function(req, res) {
-
+  const session = req.session;
+  console.log('main: ', session);
+  res.status(200).send(String('welcom! ' + session.user));
 };
 
 const login = function(req, res) {
@@ -24,6 +26,10 @@ const create = function(req, res) {
   }
 
   models.User.create({id, password, email})
+    .then(user => {
+      req.session.login = id;
+      console.log('join: ', req.session);
+    })
     .catch(err => {
       console.log(err);
     });
