@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const app = express();
 const user = require('./api/user');
+const music = require('./api/music');
 
 app.set('view engine', 'pug');
 app.locals.pretty = true;
@@ -16,5 +17,6 @@ app.use(session({
 }));
 
 app.use('/users', user);
+app.use('/music', music);
 
 module.exports = app;
