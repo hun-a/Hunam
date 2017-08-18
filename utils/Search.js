@@ -1,26 +1,31 @@
 'use strict';
+
 const EventEmitter = require('events');
-const Youtube = require('youtube-node');
+const YouTubeSearch = require('youtube-search');
+const conf = require('./configure');
 class Search extends EventEmitter {}
 const search = new Search();
-
-const youtube = new Youtube();
-youtube.setKey('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU');
+const opts = {
+  maxResults: 10,
+  key: conf.key
+};
 
 const searchContents = [];
 Search.prototype.searchContents = searchContents;
-Search.prototype.searchInYoutube = function(keyword, count) {
-  youtube.search(keyword, count, (err, result) => {
+Search.prototype.searchInYoutube = function(keyword) {
+  YouTubeSearch(keyword, opts, (err, result) => {
     if (err) {
       console.log(err);
       return;
     }
 
-    for (let item of result.items) {
-      const thumbnail = item.snippet.thumbnails.medium;
+    for (let item of result) {
+      const thumbnail = item.thumbnails.medium;
       searchContents.push({
-        vedioId: item.id.videoId,
-        title: item.snippet.title,
+        vedioId: item.id,
+        link: item.link,
+        title: item.title,
+        discription: item.description,
         thumbnailName: thumbnail.url,
         thumbnailWidth: thumbnail.width,
         thumbnailHeight: thumbnail.height
