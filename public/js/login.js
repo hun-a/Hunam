@@ -20,15 +20,15 @@ $(document).ready(() => {
     $('#login-form').submit();
   });
 
-  $('#join').click(() => {
-    window.location.replace('/join');
+  $('#join-btn').click(() => {
+    window.location.replace('/users/join');
   });
 
   $('#cancel').click(() => {
     $('input').val('');
   });
 
-  $('#join').click(() => {
+  $('#join-ok').click(() => {
     const id = $('#user').val();
     const pwd = $('#pwd').val();
     const confirm = $('#confirm').val();

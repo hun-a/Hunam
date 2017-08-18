@@ -10,7 +10,7 @@ html(lang='ko')
       div(class='column center')
         h1 Join
         br
-        form(id='join-form' class='center' action='/join/user' method='post')
+        form(id='join-form' class='center' action='/users/join' method='post')
           table(id='join-table')
             tr
               td
@@ -34,5 +34,5 @@ html(lang='ko')
                 input(id='email' type='text' name='email')
             tr
               td(colspan='2')
-                button(id='join' type='button') join
+                button(id='join-ok' type='button') join
                 button(type='button' id='cancel') cancel
