@@ -1,24 +1,19 @@
 'use strict';
 
-const EventEmitter = require('events');
 const YouTubeSearch = require('youtube-search');
 const conf = require('./configure');
-class Search extends EventEmitter {}
-const search = new Search();
 const opts = {
   maxResults: 10,
   key: conf.key
 };
 
-const searchContents = [];
-Search.prototype.searchContents = searchContents;
-Search.prototype.searchInYoutube = function(keyword) {
+function search(keyword, callback) {
   YouTubeSearch(keyword, opts, (err, result) => {
     if (err) {
       console.log(err);
       return;
     }
-
+    const searchContents = [];
     for (let item of result) {
       const thumbnail = item.thumbnails.medium;
       searchContents.push({
@@ -31,8 +26,8 @@ Search.prototype.searchInYoutube = function(keyword) {
         thumbnailHeight: thumbnail.height
       });
     }
-    search.emit('complete');
+    callback(searchContents);
   });
-};
+}
 
 module.exports = search;

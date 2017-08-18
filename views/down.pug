@@ -1,0 +1,17 @@
+doctype html
+html(lang='ko')
+  head
+    title Search page
+    link(rel='stylesheet' type='text/css' media='all' href='/css/audio.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(type='text/javascript' src='/js/login.js')
+  body
+    div(class='container')
+      div(class='column center')
+        h1 Search from YouTube
+        br
+        input(type='text' id='search-text')
+        button(id='search-btn') Search
+        br
+        each item in list
+          item.title

@@ -12,6 +12,10 @@ const play = function(req, res) {
   res.render('play');
 };
 
+const search = function(req, res) {
+
+};
+
 module.exports = {
-  manage, down, play
+  manage, down, play, search
 };
