@@ -15,6 +15,7 @@ html(lang='ko')
         br
         br
         table
+          - var index = 0
           each item in list
             tr
               td
@@ -23,4 +24,7 @@ html(lang='ko')
                 = item.title
                 br
                 br
-                button(class='down-btn' value=item.link) down
+                form(id='form' + index action='/music/down' method='post')
+                  input(type='text' hidden value=item.link name='link')
+                  button(type='button' onClick='submit(form' + index + ', progress' + index + ')') down
+                div(id='progress' + index)

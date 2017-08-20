@@ -72,9 +72,11 @@ $(document).ready(() => {
     const keyword = $('#search-text').val();
     window.location.href=`/music/search/${keyword}`;
   });
-
-  $('.down-btn').click(() => {
-    const link = $(this).attr('name');
-    alert(link);
-  });
 });
+
+function submit(form, div) {
+  alert('oops');
+  console.log(div);
+  div.innerHTML += 'This video will be download as mp3 file.';
+  // form.submit();
+}
