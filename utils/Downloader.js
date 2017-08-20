@@ -1,20 +1,11 @@
 'use strict';
 
 const exec = require('child_process').exec;
-const EventEmitter = require('events');
 const fs = require('fs');
 const path = require('path');
 const youtube = require('youtube-dl');
 
-class Downloader extends EventEmitter {}
-const downloader = new Downloader();
-
-
-var title = '';
-var fileName = '';
-var duration = '';
-
-var _download = function(url, dest, name) {
+const _download = function(url, dest, name, callback) {
   console.log(!!name);
   var destPath = !!name === true ? `"${dest}/${name}.%(ext)s"` : `"${dest}/%(title)s.%(ext)s"`;
 
@@ -24,26 +15,26 @@ var _download = function(url, dest, name) {
       return;
     }
 
-    downloader.emit('complete', err, out);
+    callback(err, out);
   });
 };
 
 var saveToDB = function(info) {
   // TODO need to implement saving mp3 informataion to the database
+  // info.title, info.duration, info._filename;
 };
 
-Downloader.prototype.download = function(url, name) {
+const download = function(url, name, callback) {
   youtube.getInfo(url, [], (err, info) => {
     if (err) {
       console.log(err);
       return;
     }
-    title = info.title;
-    duration = info.duration;
-    fileName = info._filename;
 
-    _download(url, `${__dirname}/../public/musics`, name);
+    saveToDB(info);
+
+    _download(url, `${__dirname}/../public/musics`, name, callback);
   });
 };
 
-module.exports = downloader;
+module.exports = download;
