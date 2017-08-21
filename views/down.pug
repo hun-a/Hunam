@@ -10,3 +10,10 @@ html(lang='ko')
       div(class='column center')
         h1 The list of Downloaded files
         br
+        table
+          each music in musics
+            tr
+              td
+                image(src=music.thumbnail)
+              td
+                = music.title

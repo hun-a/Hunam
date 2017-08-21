@@ -7,7 +7,7 @@ const youtube = require('youtube-dl');
 
 const _download = function(info, dest, callback) {
   const name = info.id;
-  const destPath = `"${dest}/${name}.%(ext)s"`;
+  const destPath = `"${path.join(dest, name)}.%(ext)s"`;
   const url = info.webpage_url;
   exec(`./node_modules/youtube-dl/bin/youtube-dl -x --audio-format mp3 --audio-quality 0 -o ${destPath} ${url}`, (err, out, stderr) => {
     if (err) {
@@ -18,7 +18,7 @@ const _download = function(info, dest, callback) {
     const data = {
       url: url,
       title: info.title,
-      fileName: info.id,
+      fileName: path.join(dest, `${name}.mp3'`),
       duration: info.duration,
       thumbnail: info.thumbnails[0].url,
       description: info.description

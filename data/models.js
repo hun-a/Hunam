@@ -22,4 +22,30 @@ const User = sequelize.define('User', {
   }
 });
 
-module.exports = {sequelize, User};
+const Musics = sequelize.define('Musics', {
+  key: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  title: {
+    type: Sequelize.STRING
+  },
+  url: {
+    type: Sequelize.STRING
+  },
+  fileName: {
+    type:Sequelize.STRING
+  },
+  duration: {
+    type: Sequelize.STRING(5)
+  },
+  thumbnail: {
+    type: Sequelize.STRING
+  },
+  description: {
+    type: Sequelize.TEXT
+  }
+});
+
+module.exports = {sequelize, User, Musics};

@@ -34,8 +34,22 @@ const down = function(req, res) {
       console.log(err);
       return;
     }
-    console.log(data);
-    res.render('down');
+
+    models.Musics.create(data)
+      .then(data => {
+        console.log(`${data.key} is inserted to database.`);
+        models.Musics.findAll()
+          .then(musics => {
+            console.log(JSON.stringify(musics));
+            res.render('down', musics);
+          })
+          .cach(err => {
+            res.status(500).end();
+          });
+      })
+      .catch(err => {
+        res.status(500).end();
+      });
   });
 };
 
