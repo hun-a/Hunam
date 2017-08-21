@@ -28,10 +28,8 @@ const down = function(req, res) {
   if (!link) {
     res.status(400).end();
   }
-  const fileName = link.split('?')[1];
-  console.log(link, fileName);
 
-  downloader(link, fileName, (err, data) => {
+  downloader(link, (err, data) => {
     if (err) {
       console.log(err);
       return;
