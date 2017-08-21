@@ -74,9 +74,8 @@ $(document).ready(() => {
   });
 });
 
-function submit(form, div) {
-  alert('oops');
-  console.log(div);
-  div.innerHTML += 'This video will be download as mp3 file.';
-  // form.submit();
+function sub(form, div, e) {
+  e.preventDefault();
+  document.getElementById(div).innerHTML += 'This video will be download as mp3 file...';
+  document.getElementById(form).submit();
 }
