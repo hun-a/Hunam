@@ -1,5 +1,5 @@
 const app = require('../');
-const port = 10000;
+const port = 8080;
 const syncDB = require('../data/sync-db');
 
 syncDB().then(_ => {
