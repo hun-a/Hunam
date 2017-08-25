@@ -48,4 +48,20 @@ const Musics = sequelize.define('Musics', {
   }
 });
 
-module.exports = {sequelize, User, Musics};
+const Play = sequelize.define('Play', {
+  track: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  name: {
+    type: Sequelize.STRING
+  },
+  length: {
+    type: Sequelize.STRING(5)
+  },
+  file: {
+    type: Sequelize.STRING
+  }
+});
+
+module.exports = {sequelize, User, Musics, Play};
