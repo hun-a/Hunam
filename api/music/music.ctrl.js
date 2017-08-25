@@ -5,7 +5,7 @@ const youtube = require('../../utils/Search');
 const downloader = require('../../utils/Downloader.js');
 
 const manage = function(req, res) {
-
+  res.render('management');
 };
 
 const search = function(req, res) {
