@@ -18,7 +18,7 @@ const _download = function(info, dest, callback) {
     const data = {
       url: url,
       title: info.title,
-      fileName: path.join(dest, `${name}.mp3'`),
+      fileName: `${name}.mp3'`,
       duration: info.duration,
       thumbnail: info.thumbnails[0].url,
       description: info.description
