@@ -32,22 +32,23 @@ const down = function(req, res) {
   downloader(link, (err, data) => {
     if (err) {
       console.log(err);
-      return;
+      return res.status(500).end();
     }
 
     models.Musics.create(data)
       .then(data => {
         console.log(`${data.key} is inserted to database.`);
-        models.Musics.findAll()
+        models.Musics.findAll({raw:true})
           .then(musics => {
-            console.log(JSON.stringify(musics));
-            res.render('down', musics);
+            res.render('down', {musics:musics});
           })
-          .cach(err => {
+          .catch(err => {
+            console.log(err);
             res.status(500).end();
           });
       })
       .catch(err => {
+        console.log(err);
         res.status(500).end();
       });
   });
