@@ -25,7 +25,13 @@ const search = function(req, res) {
 };
 
 const play = function(req, res) {
-  res.render('play');
+  const sampleData = [{
+    track: 1,
+    name: "연어야 연어야",
+    length: "2:40",
+    file: "ywYFXOeYDXw.mp3"
+  }];
+  res.render('play', {play: sampleData});
 };
 
 const down = function(req, res) {

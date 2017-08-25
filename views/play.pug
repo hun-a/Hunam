@@ -19,12 +19,7 @@ html(lang='ko')
             playing = false,
             mediaPath = 'https://archive.org/download/mythium/',
             extension = '',
-            tracks = [{
-              "track": 1,
-              "name": "All This Is - Joe L.'s Studio",
-              "length": "2:46",
-              "file": "JLS_ATI"
-            }],
+            tracks = #{play},
             buildPlaylist = $.each(tracks, function(key, value) {
               var trackNumber = value.track,
                 trackName = value.name,
@@ -94,13 +89,12 @@ html(lang='ko')
               $('#plList li:eq(' + id + ')').addClass('plSel');
               npTitle.text(tracks[id].name);
               index = id;
-              audio.src = tracks[id].file + extension;
+              audio.src = `/public/musics/${tracks[id].file}`;
             },
             playTrack = function(id) {
               loadTrack(id);
               audio.play();
             };
-          extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
           loadTrack(index);
         }
       });
