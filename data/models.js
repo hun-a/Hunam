@@ -48,10 +48,14 @@ const Musics = sequelize.define('Musics', {
   }
 });
 
-const Play = sequelize.define('Play', {
+const Plays = sequelize.define('Plays', {
   track: {
     type: Sequelize.INTEGER,
+    autoIncrement: true,
     primaryKey: true
+  },
+  user: {
+    type: Sequelize.STRING
   },
   name: {
     type: Sequelize.STRING
@@ -64,4 +68,4 @@ const Play = sequelize.define('Play', {
   }
 });
 
-module.exports = {sequelize, User, Musics, Play};
+module.exports = {sequelize, User, Musics, Plays};

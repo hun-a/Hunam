@@ -7,5 +7,6 @@ router.get(['/search', '/search/:keyword'], ctrl.search);
 router.get('/play', ctrl.play);
 router.get('/down', ctrl.down);
 router.post('/down', ctrl.down);
+router.get(['/list', '/list/:key'], ctrl.list);
 
 module.exports = router;

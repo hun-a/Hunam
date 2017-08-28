@@ -69,7 +69,7 @@ $(document).ready(() => {
   });
 
   $('#search-btn').click(() => {
-    const keyword = $('#search-text').val();
+    const keyword = $('#search-text').val() ? $('#search-text').val() : '';
     window.location.href=`/music/search/${keyword}`;
   });
 });
@@ -78,4 +78,9 @@ function sub(form, div, e) {
   e.preventDefault();
   document.getElementById(div).innerHTML += 'This video will be download as mp3 file...';
   document.getElementById(form).submit();
+}
+
+function add(key) {
+  console.log(key);
+  $('#selected-list').load(`/music/list/${key}`);
 }

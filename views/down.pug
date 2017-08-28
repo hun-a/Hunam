@@ -14,8 +14,10 @@ html(lang='ko')
           each music in musics
             tr
               td
-                image(src=music.thumbnail height='150' width='300')
+                image(src=music.thumbnail height='150' width='220')
               td
                 = music.title
                 p
                   = music.duration
+                p
+                  button(class='select-music' onClick='add(' + music.key + ')') add

@@ -1,0 +1,22 @@
+doctype html
+html(lang='ko')
+  head
+  body
+    div(class='container')
+      div(class='column center')
+        h1
+          button(id='search-btn') search
+          My Play list
+          button(id='to-play') play
+        br
+        form(action='/music/play' method='post' id='to-play-form')
+          input(type='text' value=list hidden name='musics')
+        table
+          each music in list
+            tr
+              td
+                = music.track
+              td
+                = music.name
+              td
+                = music.length

@@ -25,13 +25,22 @@ const search = function(req, res) {
 };
 
 const play = function(req, res) {
-  const sampleData = [{
-    track: 1,
-    name: "연어야 연어야",
-    length: "2:40",
-    file: "ywYFXOeYDXw.mp3"
-  }];
-  res.render('play', {play: sampleData});
+  const user = "sample";
+  models.Plays.findAll({
+    where: {
+      user: user
+    }
+  }, {
+    raw: true
+  })
+  .then(list => {
+    console.log(JSON.stringify(list));
+    res.render('play', {play:list});
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).end();
+  });
 };
 
 const down = function(req, res) {
@@ -74,6 +83,61 @@ const down = function(req, res) {
   }
 };
 
+const list = function(req, res) {
+  const key = req.params.key;
+
+  if (key) {
+    // save key to the database from music to user
+    models.Musics.find({
+      where: {
+        key: key
+      }
+    })
+    .then(music => {
+      const user = {
+        id: 'tester',
+        name: music.title,
+        length: music.duration,
+        file: music.fileName
+      }
+      models.Plays.create(user)
+      .then(() => {
+        models.Plays.findAll({
+          raw:true
+        })
+        .then(playList => {
+          console.log(playList);
+          res.render('list', {list:playList});
+        })
+        .catch(er => {
+          console.log(er);
+          res.status(500).end();
+        });
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(500).end();
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+  } else {
+    models.Plays.findAll({
+      raw:true
+    })
+    .then(playList => {
+      console.log(playList);
+      res.render('list', {list:playList});
+    })
+    .catch(er => {
+      console.log(er);
+      res.status(500).end();
+    });
+  }
+};
+
 function findAllMusics(callback) {
   models.Musics.findAll({
     raw:true
@@ -90,5 +154,6 @@ module.exports = {
   manage,
   search,
   play,
-  down
+  down,
+  list
 };

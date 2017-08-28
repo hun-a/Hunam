@@ -5,13 +5,16 @@ html(lang='ko')
     link(rel='stylesheet' type='text/css' media='all' href='/css/audio.css')
     script(src='https://code.jquery.com/jquery-3.2.1.min.js')
     script(type='text/javascript' src='/js/login.js')
+    script.
+      $('document').ready(() => {
+        $('#selected-list').load('/music/list')
+        $('#all-musics').load('/music/down');
+      });
   body
     div(class='container')
       div(class='column center')
-        h1 My List
-        br
+        div(id='selected-list')
 
     div(class='container')
       div(class='column center')
-        h1 All musics for Downloaded
-        br
+        div(id='all-musics')
