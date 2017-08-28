@@ -72,6 +72,10 @@ $(document).ready(() => {
     const keyword = $('#search-text').val() ? $('#search-text').val() : '';
     window.location.href=`/music/search/${keyword}`;
   });
+
+  $('#to-play').click(() => {
+    window.location.href='/music/play';
+  });
 });
 
 function sub(form, div, e) {

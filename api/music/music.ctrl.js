@@ -25,7 +25,7 @@ const search = function(req, res) {
 };
 
 const play = function(req, res) {
-  const user = "sample";
+  const user = "tester";
   models.Plays.findAll({
     where: {
       user: user
@@ -95,7 +95,7 @@ const list = function(req, res) {
     })
     .then(music => {
       const user = {
-        id: 'tester',
+        user: 'tester',
         name: music.title,
         length: music.duration,
         file: music.fileName
